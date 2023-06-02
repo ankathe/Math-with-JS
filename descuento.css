@@ -1,0 +1,72 @@
+.body {
+  background: radial-gradient(
+    circle at 50% 50%,
+    #88e5ff 0,
+    #0cb5ed 50%,
+    #0087cb 100%
+  );
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.body,
+.html {
+  height: 100vh;
+}
+
+.div-general {
+  background: white;
+  opacity: 0.6;
+  width: 50%;
+  height: 63%;
+  margin: 0 auto;
+  text-align: center;
+  padding: 18px;
+  border-radius: 10%;
+  font-size: 15px;
+}
+
+.titulo {
+  color: black;
+  padding-top: 16px;
+}
+.boton {
+  margin-left: auto;
+  margin-bottom: 30px;
+  padding: 10px 15px;
+  background-color: #00c9be;
+  color: white;
+  border-radius: 6px;
+  border-color: #c8c6c4;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 30px;
+}
+.boton:hover {
+  background-color: #00d1b7;
+  transform: translateY(-2px);
+}
+
+.label {
+  margin: 10px;
+  border: none;
+  background: #c8c6c4;
+  padding: 7px;
+}
+
+.valores {
+  margin: 5px;
+}
+
+.form {
+  position: relative;
+  padding: 13px;
+  font-size: 20px;
+}
+
+#result {
+  color: red;
+  font-size: 1px;
+}
