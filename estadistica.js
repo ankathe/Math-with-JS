@@ -1,113 +1,94 @@
-// console.group('promedioConFor');
-// const arraySalary= [10,20,30,10,15,50,30,25,15];
-// const promedio = averageArraySalary(arraySalary);
+const Estadistica ={};
 
-// function averageArraySalary(arr){
-//     let addition = 0
-//     for(let i=0; i < arr.length; i++){
-//         addition = addition + arr[i];
-//     }
-//     const average = addition / arr.length;
+Estadistica.averageArraySalary = function averageArraySalary(arr){
+    let addition = 0
+    for(let i=0; i < arr.length; i++){
+        addition = addition + arr[i];
+    }
+    const average = addition / arr.length;
 
-// return average;
-// }
-// console.log(averageArraySalary([15,15,15]));
-// console.groupEnd('promedioConFor');
+return average;
+}
 
-// console.group('promedioConMetodoReduce');
+Estadistica.calcularPromedio = function calcularPromedio(array) {
+  const sumarTodosElementos = (valorAcumulado, nuevoValor) => {
+    return valorAcumulado + nuevoValor;
+  };
 
-// const array= [10,20,30,10,15,50,30,25,15];
+  const sumaArray = array.reduce(sumarTodosElementos);
 
-// function calcularPromedio(array) {
-//   const sumarTodosElementos = (valorAcumulado, nuevoValor) => {
-//     return valorAcumulado + nuevoValor;
-//   };
+  const promedio = sumaArray / array.length;
+  console.log(promedio);
+  return promedio;
+}
 
-//   const sumaArray = array.reduce(sumarTodosElementos);
+Estadistica.isNumbersOdd = function isNumbersOdd(numero){
+    if((numero % 2) === 0){
+        console.log('numero par');
+    }else{
+        console.log('numero impar')
+    }
+    return;
+}
 
-//   const promedio = sumaArray / array.length;
-//   console.log(promedio);
-//   return promedio;
-// }
+Estadistica.isEven = function isEven(arr) {
+  return arr.length % 2 === 0;
+}
+Estadistica.isOdd = function isOdd(arr) {
+  return arr.length % 2 !== 0;
+}
 
-// console.groupEnd('promedioConMetodoReduce');
+Estadistica.calcularMediana = function calcularMediana(arr) {
+  const list = orderList(arr);
+  const listIsEven = isEven(arr);
 
-// const numbers = [1,5,8,10,20,50,30,100,12,0,15,15];
+  if (listIsEven) {
+    const halfEvenList = arr.length / 2 - 1;
+    const halfEvenList2 = arr.length / 2;
+    const halfList = [];
+    halfList.push(arr[halfEvenList]);
+    halfList.push(arr[halfEvenList2]);
+    const medianListEven = calcularPromedio(halfList);
+    return medianListEven;
+  } else {
+    const halfListOdd = Math.floor(arr.length / 2);
+    const medianListOdd = arr[halfListOdd];
+    console.log(halfListOdd);
+    console.log(medianListOdd);
+    return medianListOdd;
+  }
+}
 
-// function isNumbersOdd(numero){
-//     if((numero % 2) === 0){
-//         console.log('numero par');
-//     }else{
-//         console.log('numero impar')
-//     }
-//     return;
-// }
+Estadistica.calcularPromedio = function calcularPromedio(array) {
+  const sumarTodosElementos = (valorAcumulado, nuevoValor) => {
+    return valorAcumulado + nuevoValor;
+  };
 
-// isNumbersOdd(numbers.length);
+  const sumaArray = array.reduce(sumarTodosElementos);
 
-// console.group(calculoDeLaMediana);
+  const promedio = sumaArray / array.length;
+  console.log(promedio);
+  return promedio;
+}
 
-// const numbers = [1, 15, 8, , 20];
-// function isEven(arr) {
-//   return arr.length % 2 === 0;
-// }
-// function isOdd(arr) {
-//   return arr.length % 2 !== 0;
-// }
+Estadistica.orderList = function orderList(disorderList) {
+  function orderListSort(valorAcumulado, nuevoValor) {
+    if (valorAcumulado > nuevoValor) {
+      return 1;
+    } else if (valorAcumulado === nuevoValor) {
+      return 0;
+    } else if (valorAcumulado < nuevoValor) {
+      return -1;
+    }
+  }
+  // const list = disorderList.sort((a,b)=>a-b);
+  //  el codigo de sort se resume en una sola linea.
 
-// function calcularMediana(arr) {
-//   const list = orderList(arr);
-//   const listIsEven = isEven(arr);
+  const list = disorderList.sort(orderListSort);
+  return list;
+}
 
-//   if (listIsEven) {
-//     const halfEvenList = arr.length / 2 - 1;
-//     const halfEvenList2 = arr.length / 2;
-//     const halfList = [];
-//     halfList.push(arr[halfEvenList]);
-//     halfList.push(arr[halfEvenList2]);
-//     const medianListEven = calcularPromedio(halfList);
-//     return medianListEven;
-//   } else {
-//     const halfListOdd = Math.floor(arr.length / 2);
-//     const medianListOdd = arr[halfListOdd];
-//     console.log(halfListOdd);
-//     console.log(medianListOdd);
-//     return medianListOdd;
-//   }
-// }
-
-// function calcularPromedio(array) {
-//   const sumarTodosElementos = (valorAcumulado, nuevoValor) => {
-//     return valorAcumulado + nuevoValor;
-//   };
-
-//   const sumaArray = array.reduce(sumarTodosElementos);
-
-//   const promedio = sumaArray / array.length;
-//   console.log(promedio);
-//   return promedio;
-// }
-
-// function orderList(disorderList) {
-//   function orderListSort(valorAcumulado, nuevoValor) {
-//     if (valorAcumulado > nuevoValor) {
-//       return 1;
-//     } else if (valorAcumulado === nuevoValor) {
-//       return 0;
-//     } else if (valorAcumulado < nuevoValor) {
-//       return -1;
-//     }
-//   }
-//   // const list = disorderList.sort((a,b)=>a-b);
-//   //  el codigo de sort se resume en una sola linea.
-
-//   const list = disorderList.sort(orderListSort);
-//   return list;
-// }
-
-// console.groupEnd(calculoDeLaMediana);
-
-function operatorFashion (arr1){
+Estadistica.operatorFashion = function operatorFashion (arr1){
   const listCount = {};
 
   for (let i=0; i < arr1.length; i++){
@@ -127,7 +108,7 @@ function operatorFashion (arr1){
   return moda;
 }
 
-function orderListBidimensional(disorderList) {
+Estadistica.orderListBidimensional = function orderListBidimensional(disorderList) {
     function orderListSort(valorAcumulado, nuevoValor) {
       return valorAcumulado[1] - nuevoValor[1];
     }
