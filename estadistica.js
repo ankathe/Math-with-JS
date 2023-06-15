@@ -39,8 +39,8 @@ Estadistica.isOdd = function isOdd(arr) {
 }
 
 Estadistica.calcularMediana = function calcularMediana(arr) {
-  const list = orderList(arr);
-  const listIsEven = isEven(arr);
+  const list = Estadistica.orderList(arr);
+  const listIsEven = Estadistica.isEven(arr);
 
   if (listIsEven) {
     const halfEvenList = arr.length / 2 - 1;
@@ -48,7 +48,7 @@ Estadistica.calcularMediana = function calcularMediana(arr) {
     const halfList = [];
     halfList.push(arr[halfEvenList]);
     halfList.push(arr[halfEvenList2]);
-    const medianListEven = calcularPromedio(halfList);
+    const medianListEven = Estadistica.calcularPromedio(halfList);
     return medianListEven;
   } else {
     const halfListOdd = Math.floor(arr.length / 2);
